@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Validasi Umur</h1>
+<p>Silahkan masukkan nama dan umur Anda dengan benar</p>
+Nama : <input type="text" id="nama"><br><br>
+Umur : <input id="umur"><br>
+<button onclick="cekumur()">Cek  </button>
+<p id="hasil"> <p>
+<p>Catatan : Tambahan berupa peringatan ketika tidak mengisi nama atau tidak mengisi umur atau tidak mengisi keduanya. Untuk ketentuan lainnya sesuai soal.</p>
+<script>
+function cekumur() {
+	var nama = document.getElementById("nama").value;
+	var umur =document.getElementById("umur").value;
+	if (nama == "" && umur!== "") {
+		alert("isikan nama!!!");
+	}
+	else if (umur=="" && nama!=="") {
+		alert("isikan umur!!!");
+	}
+	else if (umur !== "" && nama !== '') {
+		if (umur>0 && umur <5) {
+			document.getElementById("hasil").innerHTML=nama+", Anda masih bayi";
+		}
+		else if (umur>5 && umur<16) {
+			document.getElementById("hasil").innerHTML=nama+", Anda masih anak-anak";
+		}
+		else if (umur>15 && umur<31) {
+			document.getElementById("hasil").innerHTML=nama+", Anda masih remaja";
+		}
+		else if (umur>30 && umur<61) {
+			document.getElementById("hasil").innerHTML=nama+", Anda sudah dewasa";
+		}
+		else if (umur>61) {
+			document.getElementById("hasil").innerHTML=nama+", Anda sudah dewasa";
+		}
+		else if (umur < 1 ) {
+			document.getElementById("hasil").innerHTML=nama+", Anda Game Over";
+		}
+	}
+	else if (umur == "" && nama == "") {
+		alert("Isikan nama dan umur Anda!")
+	}
+}
+</script>
+</body>
+</html>
